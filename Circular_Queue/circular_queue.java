@@ -38,17 +38,10 @@ class circular_queue{
     }
     public void PrintAll(){
         if(isEmpty()){
-            System.out.print(" ");
-        }
-        else{
-            for(int i=0; i<size ; i++){
-                if(i == front) System.out.print("*");
-                if(i == rear) System.out.print("*");
-                System.out.print(data[i] + " ");
-            }
+            System.out.print("empty");
         }
         
-        /* if(front > rear){
+        else if(front > rear){
             if(front == rear + 1) System.out.print(" ");
             else {
                 for(int i=front; i<size ; i++){
@@ -60,7 +53,12 @@ class circular_queue{
                     System.out.print(data[i] + " ");
                 }
             }
-        } */
+        }
+        else{
+            for(int i=front; i<=rear ; i++){
+                System.out.print(data[i] + " ");
+            }
+        }
         System.out.println("");
         //System.out.println(front);
     }
