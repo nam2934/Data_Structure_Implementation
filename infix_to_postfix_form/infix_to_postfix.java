@@ -18,14 +18,21 @@ class infix_to_postfix{
         for(int i = 0; i < postfix_size; i++){
             if(isOperand(array_postfix[i])){
                 output = output + array_postfix[i];
-                //check++;
+            }
+            else if(array_postfix[i].equals(")")){
+                while(!stack.peek().equals("(")){
+                    output = output + stack.pop();
+                }
+                stack.pop();
             }
             else{
-                check++;
                 if(stack.isEmpty()) stack.push(array_postfix[i]);
                 else{
-                    if( !((stack.peek().equals("+") || stack.peek().equals("-")) && (array_postfix[i].equals("*") || array_postfix[i].equals("/")))){
-                        while(!stack.isEmpty()){
+                    if(((stack.peek().equals("*") || stack.peek().equals("/")) || ((stack.peek().equals("+") || stack.peek().equals("-")) && (array_postfix[i].equals("+") || array_postfix[i].equals("-"))))){
+                        while(!stack.isEmpty() && !stack.peek().equals("(")){
+                            if(array_postfix[i].equals("(")){
+                                break;
+                            }
                             output = output + stack.pop();
                         }
                         stack.push(array_postfix[i]); 
@@ -43,6 +50,6 @@ class infix_to_postfix{
         System.out.println(output);
     }
     public static boolean isOperand(String s){
-        return (!s.equals("+") && !s.equals("*") && !s.equals("-") && !s.equals("/"));
+        return (!s.equals("+") && !s.equals("*") && !s.equals("-") && !s.equals("/") && !s.equals("(") && !s.equals(")"));
     }
 }
