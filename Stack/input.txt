@@ -1,0 +1,10 @@
+9
+u first string
+u second string
+e
+o
+o
+o
+u third string
+o
+o
