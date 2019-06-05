@@ -31,16 +31,15 @@ class DFS{
             }
         }
 
-        /* for(int i=0; i<vertex_num; i++){
+        for(int i=0; i<vertex_num; i++){
             System.out.println(i);
-        } */
+        }
         
         return 0;
     }
     public static void doDFS(int v, boolean[] visited,int[] DFS_com, LinkedList[] adjList, int i){
         visited[v] = true;
         DFS_com[i] = v;
-        System.out.println(i);
         i++;
         for(Node e = adjList[v].first.next; e!=null; e = e.next){
             if(!visited[e.data]){
