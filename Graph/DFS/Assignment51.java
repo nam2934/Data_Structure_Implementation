@@ -8,7 +8,7 @@ class Assignment51{
 
     public static void  main(String[] args) {
 		int[]           x, y;
-		int				vertex_num, edge_num, pos, BC_num;
+		int				vertex_num, edge_num, pos;
 		String          s;
         long			starttime, elapsedtime;
 		
@@ -76,7 +76,7 @@ class Assignment51{
 
 			// write the output
 			
-			wr.write(Integer.toString(number));
+            wr.write(Integer.toString(number)+"\n");
 			wr.close();
 		}
 		catch (Exception e) {
